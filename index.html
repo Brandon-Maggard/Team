@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+        <!--
+            GIT 417: TEAM DE&I (Case Project 1|Home Page)
+            Author: Brandon Maggard
+            Date: 18 Jan 2022
+        -->
+		<title>TEAM | DE&I</title>
+		<meta charset="utf-8">
+		<link rel="stylesheet" href="styles.css">
+		<meta name="author" content="Brandon Maggard">
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <meta name="description" content="Together Everyone Achieves More (TEAM)! We are a group of people trying to spread the importance of Diversity, Equity and Inclusion and truely believe that Together Everyone Achieves More.">
+        <!--Google font link-->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Notable&display=swap" rel="stylesheet">
+        <!--Favicon image-->
+        <link rel="shortcut icon" href="diversity.ico" type="image/x-icon">
+        <link rel="icon" href="diversity.ico" type="image/x-icon">
+        <script src="modernizr.custom.05819.js"></script>
+    </head>
+    <body>
+        <div id="wrapper">
+            <header>
+                <h1><a href="index.html">TEAM</a></h1>
+                <nav>
+                    <h2 class="breadcrumb">Navigation</h2>
+                    <ul>
+                        <li><a href="diversity.html">Diversity</a></li>
+                        <li><a href="equity.html">Equity</a></li>
+                        <li><a href="inclusion.html">Inclusion</a></li>
+                    </ul>
+                </nav>
+            </header>
+            <main>
+                <section id="splash">
+                    <h2>Together Everyone Achieves More</h2>
+                    <p>We are a group of people trying to spread the importance of Diversity, Equity and Inclusion and truely believe that Together Everyone Achieves More.</p>
+                </section>
+                <section>
+                    <h3>Community</h3>
+                    <p>People trying to spread the word about DE&I, and give people a different prespective. Everyone of us is different, but we are all human. Leverage agile frameworks to provide a robust synopsis for high level overviews. Iterative approaches to corporate strategy foster collaborative thinking to further the overall value proposition. Organically grow the holistic world view of disruptive innovation via workplace diversity and empowerment. Bring to the table win-win survival strategies to ensure proactive domination. At the end of the day, going forward, a new normal that has evolved from generation X is on the runway heading towards a streamlined cloud solution. User generated content in real-time will have multiple touchpoints for offshoring. Capitalize on low hanging fruit to identify a ballpark value added activity to beta test. Override the digital divide with additional clickthroughs from DevOps. Nanotechnology immersion along the information highway will close the loop on focusing solely on the bottom line.</p>
+
+                    <h3>Diversity Calculator</h3>
+                    <p>See how diverse your company/team is by using this Diversity Calculator.</p>
+
+                    <div id="videoBox">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Race</th>
+                                    <th>How Many</th>
+                                    <th>Percent</th>
+                                    <th>VS the US Census (2020)</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>White</td>
+                                    <td><input type="number" id="whiteNum"></td>
+                                    <td id="whitePercent"></td>
+                                    <td id="whiteCensus"></td>
+                                </tr>
+                                <tr>
+                                    <td>Black/African American</td>
+                                    <td><input type="number" id="blackNum"></td>     
+                                    <td id="blackPercent"></td>
+                                    <td id="blackCensus"></td>                     
+                                </tr>
+                                <tr>
+                                    <td>Hispanic</td>
+                                    <td><input type="number" id="hispanicNum"></td>
+                                    <td id="hispanicPercent"></td>
+                                    <td id="hispanicCensus"></td>
+                                </tr>
+                                <tr>
+                                    <td>Asian</td>
+                                    <td><input type="number" id="asianNum"></td>
+                                    <td id="asianPercent"></td>
+                                    <td id="asianCensus"></td>
+                                </tr>
+                                <tr>
+                                    <td>Native/Alaskan American</td>
+                                    <td><input type="number" id="nativeNum"></td>
+                                    <td id="nativePercent"></td>
+                                    <td id="nativeCensus"></td>
+                                </tr>
+                                <tr>
+                                    <td>Pacific Islander</td>
+                                    <td><input type="number" id="pacificNum"></td>
+                                    <td id="pacificPercent"></td>
+                                    <td id="pacificCensus"></td>
+                                </tr>
+                                <tr>
+                                    <td>Other</td>
+                                    <td><input type="number" id="otherNum"></td>
+                                    <td id="otherPercent"></td>
+                                    <td id="otherCensus"></td>
+                                </tr>
+                                <tr>
+                                    <td>Two Or More Races</td>
+                                    <td><input type="number" id="twoNum"></td>
+                                    <td id="twoPercent"></td>
+                                    <td id="twoCensus"></td>
+                                </tr>
+                            </tbody>
+                            <tfoot>
+                                <tr>
+                                    <td>Total</td>                           
+                                    <td id="totalNum"></td>
+                                    <td id="totalPercent"></td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td colspan="4"><button type="button" id="button">Calculate</button></td>
+                                </tr>
+                                <tr>
+                                    <td colspan="4">*+/-1% off due to rounding.</td>
+                                </tr>
+                            </tfoot>
+                        </table>
+                    </div>
+                </section>
+                <footer>
+                    <ul>
+                        <li><a href="#">About</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                        <li><a href="#">Volunteer</a></li>
+                        <li><a href="legal.html">Legal</a></li>
+                    </ul>
+                    <p><small>&copy; Brandon Maggard @ ASU</small></p>
+                </footer>
+            </main>
+        </div>
+        <!-- Script that will give a total and percent based on the users input for how much diversity they have based off race-->
+        <script>
+            function diverCalc () {
+                // Setting the variables based on the users input into the table
+                var white = document.getElementById("whiteNum").value;
+                var black = document.getElementById("blackNum").value;
+                var hispanic = document.getElementById("hispanicNum").value;
+                var asian = document.getElementById("asianNum").value;
+                var native = document.getElementById("nativeNum").value;
+                var pacific = document.getElementById("pacificNum").value;
+                var other = document.getElementById("otherNum").value;
+                var two = document.getElementById("twoNum").value;
+                // Calculating the total number of people they input for each race
+                var total = +white + +black + +hispanic + +asian + +native + +pacific + +other + +two;
+                document.getElementById("totalNum").innerHTML = total;
+                // Setting variables and getting the percent for each race by using an equation and then placing it in the final block
+                var whiteP = Math.round((+white / +total) * 100);
+                document.getElementById("whitePercent").innerHTML = whiteP + "%";
+                var blackP = Math.round((+black / +total) * 100);
+                document.getElementById("blackPercent").innerHTML = blackP + "%";
+                var hispanicP = Math.round((+hispanic / +total) * 100);
+                document.getElementById("hispanicPercent").innerHTML = hispanicP + "%";
+                var asianP = Math.round((+asian / +total) * 100);
+                document.getElementById("asianPercent").innerHTML = asianP + "%";
+                var nativeP = Math.round((+native / +total) * 100);
+                document.getElementById("nativePercent").innerHTML = nativeP + "%";
+                var pacificP = Math.round((+pacific / +total) * 100);
+                document.getElementById("pacificPercent").innerHTML = pacificP + "%";
+                var otherP = Math.round((+other / +total) * 100);
+                document.getElementById("otherPercent").innerHTML = otherP + "%";
+                var twoP = Math.round((+two / +total) * 100);
+                document.getElementById("twoPercent").innerHTML = twoP + "%";
+
+                //Series of if/if else statement to determine if the user's team/company is at/above/below the national average according to the US Census 2020
+                if (whiteP === 58) {
+                    document.getElementById("whiteCensus").innerHTML = "You are at the national average of 58%";
+                } else if (whiteP > 58){
+                    document.getElementById("whiteCensus").innerHTML = "You are above the national average of 58%";
+                } else {
+                    document.getElementById("whiteCensus").innerHTML = "You are below the national average of 58%";
+                }
+
+                if (blackP === 12) {
+                    document.getElementById("blackCensus").innerHTML = "You are at the national average of 12%";
+                } else if (blackP > 12) {
+                    document.getElementById("blackCensus").innerHTML = "You are above the national average of 12%";
+                } else {
+                    document.getElementById("blackCensus").innerHTML = "You are below the national average of 12%";
+                }
+
+                if (hispanicP === 19) {
+                    document.getElementById("hispanicCensus").innerHTML = "You are at the national average of 19%";
+                } else if (hispanicP > 19) {
+                    document.getElementById("hispanicCensus").innerHTML = "You are above the national average of 19%";
+                } else {
+                    document.getElementById("hispanicCensus").innerHTML = "You are below the national average of 19%"
+                }
+
+                if (asianP === 6) {
+                    document.getElementById("asianCensus").innerHTML = "You are at the national average of 6%";
+                } else if (asianP > 6) {
+                    document.getElementById("asianCensus").innerHTML = "You are above the national average of 6%";
+                } else {
+                    document.getElementById("asianCensus").innerHTML = "You are below the national average of 6%";
+                }
+
+                if (nativeP === 1) {
+                    document.getElementById("nativeCensus").innerHTML = "You are at the national average of 1%";
+                } else if (nativeP > 1) {
+                    document.getElementById("nativeCensus").innerHTML = "You are above the national average of 1%";
+                } else {
+                    document.getElementById("nativeCensus").innerHTML = "You are below the national average of 1%";
+                }
+
+                if (pacificP === 1) {
+                    document.getElementById("pacificCensus").innerHTML = "You are at the national average of 1%";
+                } else if (pacificP > 1) {
+                    document.getElementById("pacificCensus").innerHTML = "You are above the national average of 1%";
+                } else {
+                    document.getElementById("pacificCensus").innerHTML = "You are below the national average of 1%";
+                }
+
+                if (otherP === 1) {
+                    document.getElementById("otherCensus").innerHTML = "You are at the national average of 1%";
+                } else if (otherP > 1) {
+                    document.getElementById("otherCensus").innerHTML = "You are above the national average of 1%";
+                } else {
+                    document.getElementById("otherCensus").innerHTML = "You are below the national average of 1%";
+                }
+
+                if (twoP === 1) {
+                    document.getElementById("twoCensus").innerHTML = "You are at the national average of 1%";
+                } else if (twoP > 1) {
+                    document.getElementById("twoCensus").innerHTML = "You are above the national average of 1%";
+                } else {
+                    document.getElementById("twoCensus").innerHTML = "You are below the national average of 1%";
+                }
+            }
+            // To allow the user to execute the equation by clicking on the calculate button
+            document.getElementById("button").
+            addEventListener("click", diverCalc, false);
+        </script>
+    </body>
+</html>

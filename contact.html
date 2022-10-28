@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+        <!--
+            GIT 417: TEAM DE&I (Case Project 1|Home Page)
+            Author: Brandon Maggard
+            Date: 4 Feb 2022
+        -->
+		<title>TEAM | DE&I</title>
+		<meta charset="utf-8">
+		<link rel="stylesheet" href="styles.css">
+		<meta name="author" content="Brandon Maggard">
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <meta name="description" content="Together Everyone Achieves More (TEAM)! We are a group of people trying to spread the importance of Diversity, Equity and Inclusion and truely believe that Together Everyone Achieves More.">
+        <!--Google font link-->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Notable&display=swap" rel="stylesheet">
+        <!--Favicon image-->
+        <link rel="shortcut icon" href="diversity.ico" type="image/x-icon">
+        <link rel="icon" href="diversity.ico" type="image/x-icon">
+        <script src="modernizr.custom.05819.js"></script>
+    </head>
+    <body>
+        <div id="wrapper">
+            <header>
+                <h1><a href="index.html">TEAM</a></h1>
+                <nav>
+                    <h2 class="breadcrumb">Navigation</h2>
+                    <ul>
+                        <li><a href="diversity.html">Diversity</a></li>
+                        <li><a href="equity.html">Equity</a></li>
+                        <li><a href="inclusion.html">Inclusion</a></li>
+                    </ul>
+                </nav>
+            </header>
+            <main>
+                <section id="splash">
+                    <h2>Contact Us</h2>
+                    <p>Tell us what we can improve on.</p>                
+                </section>
+                    <div id="videoBox">
+                        <form id="feedbackForm" action="#" novalidate="novalidate">
+                            <fieldset>
+                                <legend>Please provide your information</legend>
+                                <label for="fName">First Name</label>
+                                <div class="center">
+                                    <input type="text" id="fName" name="fName" placeholder="John"><br><span id="errorFirst"></span>
+                                </div>
+
+                                <label for="lName">Last Name</label>
+                                <div class="center">
+                                    <input type="text" id="lName" name="lName" placeholder="Doe"><br><span id="errorLast"></span>
+                                </div>
+
+                                <label for="email">Email</label>
+                                <div class="center">
+                                    <input type="email" id="email" name="email" placeholder="JohnD@example.com"><br><span id="errorEmail"></span>
+                                </div>
+                            </fieldset>
+                            <fieldset>
+                                <legend>Please provide us with your suggestion</legend>
+                                <div class="center">
+                                    <label>What topic would you like to give feedback on?</label><br><span id="errorTopic"></span>
+                    
+                                    <input type="checkbox" id="diversityCB" name="diversityCB" value="Diversity">
+                                    <label for="diversityCB" id="diversityLabel">Diversity</label>
+
+                                    <input type="checkbox" id="equityCB" name="equityCB" value="Equity">
+                                    <label for="equityCB" id="equityLabel">Equity</label>
+
+                                    <input type="checkbox" id="inclusionCB" name="inclusionCB" value="Inclusion">
+                                    <label for="inclusionCB" id="inclusionLabel">Inclusion</label>
+
+                                    <input type="checkbox" id="otherCB" name="otherCB" value="Other">
+                                    <label for="otherCB" id="otherLabel">Other</label><br>
+                                </div>
+
+                                <label for="comments">Please give us your suggestion with some detail</label>
+                                <div class="center">
+                                    <textarea id="comments" name="comments"></textarea><br>
+                                    <span id="errorText"></span>
+                                </div>
+                            </fieldset>
+                            <div class="center">
+                                <!-- <div id="errorFirst"></div>
+                                <div id="errorLast"></div>
+                                <div id="errorEmail"></div>
+                                <div id="errorTopic"></div> -->
+                                <button type="submit" id="submitBtn">Submit</button>
+                            </div>
+                        </form>
+                    </div>
+                <footer>
+                    <ul>
+                        <li><a href="#">About</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                        <li><a href="#">Volunteer</a></li>
+                        <li><a href="legal.html">Legal</a></li>
+                    </ul>
+                    <p><small>&copy; Brandon Maggard @ ASU</small></p>
+                </footer>
+            </main>
+        </div>
+        <!-- Script that will check the form if the inputs are blank execpt the suggestion box-->
+        <script>
+            function validForm (event) {
+                event.preventDefault ();
+                var hasErrors = false; //no errors will show up on load
+                //Checking if there is a value in the First Name input
+                try {
+                    var firstName = document.getElementById("fName").value;
+                    if (firstName === "") {
+                        //Displays a red border around the First Name input box if left blank
+                        document.getElementById("fName").style.border = "2px solid red";
+                        //If no input this error will be displayed
+                        throw "Please enter your first name."
+                    } 
+                    //Else statement to clear the border style and error message if user then inputs correct data
+                    else {
+                        document.getElementById("fName").style.border = "";
+                        document.getElementById("errorFirst").innerHTML = "";
+                    }
+                }
+                catch (error) {
+                    //sending this to the console log so we can see what is happening
+                    console.log(error);
+                    //changing the form to having errors and sends it to the screen
+                    hasErrors = true;
+                    document.getElementById("errorFirst").innerHTML = error;
+                }
+
+                //Checking if there is a value in the Last Name input
+                try {
+                    var lastName = document.getElementById("lName").value;
+                    if (lastName === "") {
+                        //Displays a red border around the Last Name input box if left blank
+                        document.getElementById("lName").style.border = "2px solid red";
+                        //If no input this error will be displayed
+                        throw "Please enter your last name."
+                    }
+                    //Else statement to clear the border style and error message if user then inputs correct data
+                    else {
+                        document.getElementById("lName").style.border = "";
+                        document.getElementById("errorLast").innerHTML = "";
+                    }
+                }
+                catch (error) {
+                    //sending this to the console log so we can see what is happening
+                    console.log(error);
+                    //changing the form to having errors and sends it to the screen
+                    hasErrors = true;
+                    document.getElementById("errorLast").innerHTML = error;
+                }
+
+                //Checking if there is a value in the Email input
+                try {
+                    var pEmail = document.getElementById("email").value;
+                    //Var that test to see if it is a valid email
+                    var mailformat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+                    if (pEmail === "") {
+                        //Displays a red border around the Email input box if left blank
+                        document.getElementById("email").style.border = "2px solid red";
+                        //If no input this error will be displayed
+                        throw "Please enter your email."
+                    } 
+                    //Else if statement seeing if it is a valid email and send a message to the console log
+                    else if (pEmail.match(mailformat)) {
+                        console.log("Valid Email")
+                        //Clears the border and error message
+                        document.getElementById("email").style.border = "";
+                        document.getElementById("errorEmail").innerHTML = "";
+                    } else {
+                        //If the user inputted an invalid email then the input box will still be highlighted and the message enter a valid email will be thrown
+                        document.getElementById("email").style.border = "2px solid red";
+                        throw "Please enter a valid email."
+                    }
+                }
+                catch (error) {
+                    //sending this to the console log so we can see what is happening
+                    console.log(error);
+                    //changing the form to having errors and sends it to the screen
+                    hasErrors = true;
+                    document.getElementById("errorEmail").innerHTML = error;
+                }
+
+                //Checking if a checkbox has been selected
+                try {
+                    //starting with a var that is false and changing it to true if a checkbox was selected
+                    var boxChecked = false;
+                    if (document.getElementById("diversityCB").checked === true) {
+                        //changing var to be true
+                        boxChecked = true;
+                        //showing that diversity was selected in the console log
+                        console.log("Diversity has been selected")
+                        //Loop that will clear the box shadow on the checkbox and get rid of the error message if a topic is selected
+                        for (i = 3; i <= 6; i++) {
+                            document.getElementsByTagName("input")[i].style.boxShadow = "";
+                            document.getElementById("errorTopic").innerHTML = "";
+                        }
+                    }
+                    if (document.getElementById("equityCB").checked === true) {
+                        //changing var to be true
+                        boxChecked = true;
+                        //showing that equity was selected in the console log
+                        console.log("Equity has been selected")
+                        for (i = 3; i <= 6; i++) {
+                            document.getElementsByTagName("input")[i].style.boxShadow = "";
+                            document.getElementById("errorTopic").innerHTML = "";
+                        }
+                    }
+                    if (document.getElementById("inclusionCB").checked === true) {
+                        //changing var to be true
+                        boxChecked = true;
+                        //showing that inclusion was selected in the console log
+                        console.log("Inclusion has been selected")
+                        for (i = 3; i <= 6; i++) {
+                            document.getElementsByTagName("input")[i].style.boxShadow = "";
+                            document.getElementById("errorTopic").innerHTML = "";
+                        }
+                    }
+                    if (document.getElementById("otherCB").checked === true) {
+                        //changing var to be true
+                        boxChecked = true;
+                        //showing that other was selected in the console log
+                        console.log("Other has been selected")
+                        for (i = 3; i <= 6; i++) {
+                            document.getElementsByTagName("input")[i].style.boxShadow = "";
+                            document.getElementById("errorTopic").innerHTML = "";
+                        }
+                    }
+                    //if var is still false then throwing the message
+                    else if (boxChecked === false) {
+                        //A loop that will style the checkboxes to have a boxshadow if the user didn't select any checkboxes
+                        for (i = 3; i <= 6; i++) {
+                            document.getElementsByTagName("input")[i].style.boxShadow = "1px 2px 2px red inset";
+                        }   
+                        throw "Please select a topic."
+                    }
+                }
+                catch (error) {
+                    //sending this to the console log so we can see what is happening
+                    console.log(error);
+                    //changing the form to having errors and sends it to the screen
+                    hasErrors = true;
+                    document.getElementById("errorTopic").innerHTML = error;
+                }
+
+                //Checking if there is a value in the textarea input
+                try {
+                    var pText = document.getElementById("comments").value;
+                    if (pText === "") {
+                        document.getElementById("comments").style.border = "2px solid red";
+                        //If no input this error will be displayed
+                        throw "Please tell us in a little detail what is wrong/needs improvement"
+                    }
+                    //Else statement to clear the border style and error message if user then inputs correct data
+                    else {
+                        document.getElementById("comments").style.border = "";
+                        document.getElementById("errorText").innerHTML = "";
+                    }
+                }
+                catch (error) {
+                    //sending this to the console log so we can see what is happening
+                    console.log(error);
+                    //changing the form to having errors and sends it to the screen
+                    hasErrors = true;
+                    document.getElementById("errorText").innerHTML = error;
+                }
+
+                finally {
+                    if (hasErrors) {
+                        //sending this to the console log so we can see what is happening
+                        console.log("Please fix all errors to submit");
+                    } else {
+                        alert("Thank you for your input.");
+                        document.getElementById("feedbackForm").reset();
+                    }
+                }
+            }
+
+            function createEventListeners() {
+                var submitBtn = document.getElementById("submitBtn");
+                submitBtn.addEventListener("click", validForm, false);
+            }
+            window.addEventListener("load", createEventListeners, false);  
+        </script>
+    </body>
+</html>

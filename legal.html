@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+        <!--
+            GIT 417: TEAM DE&I (Case Project 1|Home Page)
+            Author: Brandon Maggard
+            Date: 12 Feb 2022
+        -->
+		<title>TEAM | DE&I</title>
+		<meta charset="utf-8">
+		<link rel="stylesheet" href="styles.css">
+		<meta name="author" content="Brandon Maggard">
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <meta name="description" content="Together Everyone Achieves More (TEAM)! We are a group of people trying to spread the importance of Diversity, Equity and Inclusion and truely believe that Together Everyone Achieves More.">
+        <!--Google font link-->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Notable&display=swap" rel="stylesheet">
+        <!--Favicon image-->
+        <link rel="shortcut icon" href="diversity.ico" type="image/x-icon">
+        <link rel="icon" href="diversity.ico" type="image/x-icon">
+        <script src="modernizr.custom.05819.js"></script>
+    </head>
+    <body>
+        <div id="wrapper">
+            <header>
+                <h1><a href="index.html">TEAM</a></h1>
+                <nav>
+                    <h2 class="breadcrumb">Navigation</h2>
+                    <ul>
+                        <li><a href="diversity.html">Diversity</a></li>
+                        <li><a href="equity.html">Equity</a></li>
+                        <li><a href="inclusion.html">Inclusion</a></li>
+                    </ul>
+                </nav>
+            </header>
+            <main>
+                <section id="security">
+                    <h2>Web Security</h2>
+                    <div id="securityImg"></div>
+                    <p class="bigger">Although we have no intrest in collecting this data, this is a demonstration on what information that we can get from your internet browser:</p>
+                    <p id="agent"></p>
+                    <p id="platform"></p> 
+                    <p id="location"></p> 
+                    <p id="browser"></p> 
+                    <p id="width"></p> 
+                    <p id="height"></p>
+
+                    <h3>Articles That Can Help You Protect Yourself</h3>
+                    <article>
+                        <h4><a href="https://www.mimecast.com/content/web-security/#:~:text=In%20general%2C%20web%20security%20refers,users%20and%20companies%20from%20risk.">What is Web Security</a></h4>
+                        <p>This is a short article about the surface level of what web security is and how cyber criminals attack to get your information.</p>
+                    </article>
+                    <article>
+                        <h4><a href="https://www.equifax.co.uk/resources/identity-protection/how-cyber-attacks-happen.html#:~:text=Cyber%20attacks%20are%20much%20more,personal%20information%20under%20false%20pretences.">How Cyber Attacks Happen</a></h4>
+                        <p>This article is a little more in-depth about cyber attacks but is still easily understandable, and provides great examples to what they are talking about, and why people commit cyber attacks.</p>
+                    </article>
+                    <article>
+                        <h4><a href="https://programs.online.utica.edu/resources/article/ten-ways-to-protect-your-identity">Top 10 Ways To Protect Yourself Online</a></h4>
+                        <p>This article gives you 10 ways on how to protect yourself online, and mostly focuses on use strong passwords, use encyptions websites, and using protection software.</p>
+                    </article>
+                </section>
+                    <!-- <div id="videoBox">
+                        
+                    </div> -->
+                <footer>
+                    <ul>
+                        <li><a href="#">About</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                        <li><a href="#">Volunteer</a></li>
+                        <li><a href="legal.html">Legal</a></li>
+                    </ul>
+                    <p><small>&copy; Brandon Maggard @ ASU</small></p>
+                </footer>
+            </main>
+        </div>
+        <!-- Script that will check the form if the inputs are blank execpt the suggestion box-->
+        <script>
+            "use strict";
+           function createInfoList() {
+               //This commented out script is probably the easiest way to complete this task by assigning ID to the p tag and using the getElementById and placing the innerHTML manually
+            //  document.getElementById("agent").innerHTML = "User's Agent: " + navigator.userAgent;
+            //  document.getElementById("platform").innerHTML = "User's Platform: " + navigator.platform;  
+            //  document.getElementById("location").innerHTML = "User's Location: " + navigator.geolocation;
+            //  document.getElementById("browser").innerHTML = "User's Browser: " + navigator.appName;
+            //  document.getElementById("width").innerHTML = "User's Screen Width: " + screen.availWidth;
+            //  document.getElementById("height").innerHTML = "User's Screen Height: " + screen.availHeight;  
+
+            //I wanted to practice with arrays so I came up with this code
+            //An array of strings that is to be displayed, and is numbered to line up with the amount of p tags that I have on the site for ease of use in a loop
+                const info = [];
+                info[1] = "User's Agent: ";
+                info[2] = "User's Platform: ";
+                info[3] = "User's Location: ";
+                info[4] = "User's Browser: ";
+                info[5] = "User's Screen Width: ";
+                info[6] = "User's Screen Height: ";
+                //An array of getting properties from the user and again that is numbered in a way for it to be lined up with the p tags on the site
+                const data = [];
+                data[1] = navigator.userAgent;
+                data[2] = navigator.platform;
+                data[3] = navigator.geolocation;
+                data[4] = navigator.appName;
+                data[5] = screen.availWidth;
+                data[6] = screen.availHeight;
+                //A loop that gets the p tag by using it's array index and then putting in the content for it that displays my first array and then get the properties from the second array
+                for(var i = 1; i <= 6; i++) {
+                    document.getElementsByTagName("p")[i].innerHTML = info[i] + data[i];
+                }
+            }
+            //Adds an event lister to execute on the loading of the page
+            if (window.addEventListener) {
+                window.addEventListener("load", createInfoList, false); 
+            } else if (window.attachEvent)  {
+                window.attachEvent("onload", createInfoList);
+            }
+        </script>
+    </body>
+</html>
